@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lugares</string>
+    <string name="NombreAplicacion">Lugares del mundo</string>
+    <string name="nombre">Introduce tu nombre</string>
+    <string name="password">Introduce la contraseña</string>
+    <string name="entrar">Entrar</string>
+    <string name="title_activity_mapa">Map</string>
+</resources>
