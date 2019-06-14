@@ -5,4 +5,13 @@
     <string name="password">Introduce la contraseña</string>
     <string name="entrar">Entrar</string>
     <string name="title_activity_mapa">Map</string>
+    <string name="anadir">Añadir</string>
+    <string name="nuevoLugar">Nuevo lugar</string>
+    <string name="editNombre">Introduce el nombre</string>
+    <string name="editDescripcion">Introduce la descripción</string>
+    <string name="editLatitud">Introduce la latitud</string>
+    <string name="editLongitud">Introduce la longitud</string>
+    <string name="modificarLugar">Modificar lugar</string>
+    <string name="modificar">Modificar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>

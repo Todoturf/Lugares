@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F51B5"
+    tools:context=".ModificarActivity">
+
+    <TextView
+        android:id="@+id/txtModificarLugar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:hint="@string/modificarLugar"
+        android:text="@string/modificarLugar"
+        android:textColor="#FFEB3B"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editNombre2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editNombre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/txtModificarLugar"
+        app:layout_constraintStart_toStartOf="@+id/txtModificarLugar"
+        app:layout_constraintTop_toBottomOf="@+id/txtModificarLugar" />
+
+    <EditText
+        android:id="@+id/editDescripcion2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editDescripcion"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editNombre2"
+        app:layout_constraintStart_toStartOf="@+id/editNombre2"
+        app:layout_constraintTop_toBottomOf="@+id/editNombre2" />
+
+    <EditText
+        android:id="@+id/editLatitud2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editLatitud"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editDescripcion2"
+        app:layout_constraintStart_toStartOf="@+id/editDescripcion2"
+        app:layout_constraintTop_toBottomOf="@+id/editDescripcion2" />
+
+    <EditText
+        android:id="@+id/editLongitud2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/editLongitud"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/editLatitud2"
+        app:layout_constraintStart_toStartOf="@+id/editLatitud2"
+        app:layout_constraintTop_toBottomOf="@+id/editLatitud2" />
+
+    <RatingBar
+        android:id="@+id/ratingBarLugar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/editLongitud2"
+        app:layout_constraintStart_toStartOf="@+id/editLongitud2"
+        app:layout_constraintTop_toBottomOf="@+id/editLongitud2" />
+
+    <Button
+        android:id="@+id/btnModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/modificar"
+        android:text="@string/modificar"
+        app:layout_constraintStart_toStartOf="@+id/ratingBarLugar2"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBarLugar2" />
+
+    <Button
+        android:id="@+id/btnCancelar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/cancelar"
+        app:layout_constraintEnd_toEndOf="@+id/ratingBarLugar2"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBarLugar2" />
+
+</android.support.constraint.ConstraintLayout>

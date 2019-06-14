@@ -17,15 +17,15 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
 public class MapaActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnInfoWindowClickListener
 {
     private GoogleMap mMap;
 
-    Double latitud;
-    Double longitud;
     String nombre;
     String descripcion;
+    Double latitud;
+    Double longitud;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,11 +36,10 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         Bundle extras = getIntent().getExtras();
-        latitud = extras.getDouble("latitud", 0);
-        longitud = extras.getDouble("longitud", 0);
         nombre = extras.getString("nombre", "");
         descripcion = extras.getString("descripcion", "");
-
+        latitud = extras.getDouble("latitud", 0);
+        longitud = extras.getDouble("longitud", 0);
     }
 
     /**
@@ -66,6 +65,7 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(mapa));
 
         LatLng mapa = new LatLng(latitud, longitud);
+        Log.i("latitud", latitud.toString());
         Marker marcadormapa = mMap.addMarker(new MarkerOptions()
                 .position(mapa)
                 .title(nombre)
@@ -75,7 +75,6 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
                 .flat(true)
         );
         mMap.moveCamera(CameraUpdateFactory.newLatLng(mapa));
-
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     }
 

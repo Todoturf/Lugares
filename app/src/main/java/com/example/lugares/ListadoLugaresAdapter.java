@@ -1,11 +1,14 @@
 package com.example.lugares;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,8 +24,6 @@ public class ListadoLugaresAdapter  extends ArrayAdapter<Lugar>
 {
     private ArrayList<Lugar> listaLugares;
     private Context context;
-
-
 
     public ListadoLugaresAdapter(Context context,
                                  ArrayList<Lugar> listaLugaresArrayList)
@@ -54,11 +55,12 @@ public class ListadoLugaresAdapter  extends ArrayAdapter<Lugar>
                         parent,
                         false);
         }
-
         TextView txtNombre = (TextView) convertView.findViewById(R.id.txtNombre);
         TextView txtDescripcion = (TextView) convertView.findViewById(R.id.txtDescripcion);
         RatingBar ratingBarLugares = convertView.findViewById(R.id.ratingBarLugares);
         ImageButton imgMapa = convertView.findViewById(R.id.imgMapa);
+        ImageButton imgModificar = convertView.findViewById(R.id.imgModificar);
+        ImageButton imgBorrar = convertView.findViewById(R.id.imgBorrar);
         
         txtNombre.setText(lugar.getNombre());
         txtDescripcion.setText(lugar.getDescripcion());
@@ -76,7 +78,51 @@ public class ListadoLugaresAdapter  extends ArrayAdapter<Lugar>
                 intent.putExtra("descripcion", listaLugares.get(position).getDescripcion());
                 context.startActivity(intent);
             }
+
         });
+
+        imgBorrar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                createSimpleDialog(position).show();
+            }
+        });
+
+        imgModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ModificarActivity.class);
+                intent.putExtra(("lugar"), position);
+                context.startActivity(intent);
+            }
+        });
+
         return convertView;
+    }
+    public AlertDialog createSimpleDialog (final int position)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Atención")
+                .setMessage("¿Seguro que desea eliminar esta nota?")
+                .setPositiveButton("Eliminar", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        // Eliminar nota
+                        listaLugares.remove(position);
+                        notifyDataSetChanged();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        //cancelar operacion
+                    }
+                });
+        return builder.create();
     }
 }
